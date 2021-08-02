@@ -21,7 +21,7 @@ import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import Test from './Test'
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
