@@ -18,10 +18,17 @@ import ListItemText from '@material-ui/core/ListItemText';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import EventNoteRoundedIcon from '@material-ui/icons/EventNoteRounded';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import Test from './Test'
+import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined';
 
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+
+import MainRouter from './MainRouter';
 const drawerWidth = 240;
-
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -44,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
       
     }),
     
+  },
+    LoginButton: {
+    marginLeft:' auto',
   },
   menuButton: {
     marginRight: 36,
@@ -96,10 +106,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MiniDrawer() {
+export default function TemplateEmployer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const openLog = Boolean(anchorEl);
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
  
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -133,6 +152,35 @@ export default function MiniDrawer() {
           <Typography variant="h6" noWrap>
             Auto Ecole
           </Typography>
+          <div className={classes.LoginButton}>
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={openLog}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+              </Menu>
+            </div>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -155,24 +203,30 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>
-              <ListItem button >
+          <ListItemLink href="Home">
                 <ListItemIcon><HomeOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Home"} />
-              </ListItem>  
-              <ListItem button >
+           
+              </ListItemLink>
+              <ListItemLink href="Calendar">
                 <ListItemIcon><EventNoteRoundedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Calendar"} />
-              </ListItem>
-              <ListItem button >
+                </ListItemLink>
+              <ListItemLink  href="Candidats" >
                 <ListItemIcon><PermIdentityIcon style={{ color: 'white' }} /></ListItemIcon>
-                <ListItemText className={classes.textColor} primary={"Candidate"} />
-              </ListItem> 
+                <ListItemText className={classes.textColor} primary={"Candidates"} />
+              </ListItemLink> 
+              <ListItemLink href="Vehicules"  >
+                <ListItemIcon><DriveEtaOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
+                <ListItemText className={classes.textColor} primary={"Vehicles"} />
+              </ListItemLink>
           </List>
-        
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Test/>
+        
+        <MainRouter/>
+        
       </main>
     </div>
   );

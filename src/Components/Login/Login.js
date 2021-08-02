@@ -1,11 +1,11 @@
 import React from 'react'
-
-function test() {
+import './Login.css'
+function Login() {
     return (
         <div>
-            <h1> THIS WORK !! </h1>
+            
         </div>
     )
 }
 
-export default test
+export default Login
