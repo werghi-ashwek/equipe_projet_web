@@ -19,8 +19,6 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import EventNoteRoundedIcon from '@material-ui/icons/EventNoteRounded';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import Test from './Test'
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 
 const drawerWidth = 240;
 
@@ -28,9 +26,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
-  loginButton: {
-    marginRight: theme.spacing(2),
-  },
+  
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
@@ -104,18 +100,7 @@ export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const openL = Boolean(anchorEl);
-
-  
-
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-}
+ 
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -148,35 +133,6 @@ export default function MiniDrawer() {
           <Typography variant="h6" noWrap>
             Auto Ecole
           </Typography>
-          <div >
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-              </Menu>
-            </div>
         </Toolbar>
       </AppBar>
       <Drawer
