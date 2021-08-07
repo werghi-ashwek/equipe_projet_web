@@ -18,9 +18,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import EventNoteRoundedIcon from '@material-ui/icons/EventNoteRounded';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
 import MainRouter from './MainRouter';
+import Avatar from '@material-ui/core/Avatar';
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 const drawerWidth = 240;
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -156,7 +157,7 @@ export default function TemplateCandidate() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                <Avatar src="/broken-image.jpg" />
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -173,8 +174,9 @@ export default function TemplateCandidate() {
                 open={openLog}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>
+                <ExitToAppOutlinedIcon/>   Log Out</MenuItem>
+                
               </Menu>
             </div>
         </Toolbar>
@@ -199,11 +201,11 @@ export default function TemplateCandidate() {
         </div>
         <Divider />
         <List>
-          <ListItemLink href="Test">
+          <ListItemLink href="/main/Test">
                 <ListItemIcon><AssignmentTurnedInOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Tests"} />
               </ListItemLink>
-              <ListItemLink href="CandCalendar">
+              <ListItemLink href="/main/CandCalendar">
                 <ListItemIcon><EventNoteRoundedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"My Calendar"} />
                </ListItemLink>

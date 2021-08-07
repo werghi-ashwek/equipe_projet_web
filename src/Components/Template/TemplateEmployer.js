@@ -19,12 +19,12 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import EventNoteRoundedIcon from '@material-ui/icons/EventNoteRounded';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined';
-
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-
 import MainRouter from './MainRouter';
+
+import Avatar from '@material-ui/core/Avatar';
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 const drawerWidth = 240;
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -116,6 +116,7 @@ export default function TemplateEmployer() {
     setAnchorEl(event.currentTarget);
   };
 
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -160,7 +161,7 @@ export default function TemplateEmployer() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                <Avatar src="/broken-image.jpg" />
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -177,8 +178,9 @@ export default function TemplateEmployer() {
                 open={openLog}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>
+                <ExitToAppOutlinedIcon/>   Log Out</MenuItem>
+                
               </Menu>
             </div>
         </Toolbar>
@@ -203,20 +205,21 @@ export default function TemplateEmployer() {
         </div>
         <Divider />
         <List>
-          <ListItemLink href="Home">
+          
+             <ListItemLink  href="/main/Home">
                 <ListItemIcon><HomeOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Home"} />
-           
-              </ListItemLink>
-              <ListItemLink href="Calendar">
+                </ListItemLink>
+              
+              <ListItemLink href="/main/Calendar">
                 <ListItemIcon><EventNoteRoundedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Calendar"} />
                 </ListItemLink>
-              <ListItemLink  href="Candidats" >
+              <ListItemLink  href="/main/Candidats" >
                 <ListItemIcon><PermIdentityIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Candidates"} />
               </ListItemLink> 
-              <ListItemLink href="Vehicules"  >
+              <ListItemLink href="/main/Vehicules"  >
                 <ListItemIcon><DriveEtaOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Vehicles"} />
               </ListItemLink>

@@ -21,11 +21,11 @@ import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
-
+import Avatar from '@material-ui/core/Avatar';
 import MainRouter from './MainRouter';
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 const drawerWidth = 240;
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -161,7 +161,7 @@ export default function TemplateAdmin() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                <Avatar src="/broken-image.jpg" />
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -178,8 +178,9 @@ export default function TemplateAdmin() {
                 open={openLog}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>
+                <ExitToAppOutlinedIcon/>   Log Out</MenuItem>
+                
               </Menu>
             </div>
         </Toolbar>
@@ -204,28 +205,28 @@ export default function TemplateAdmin() {
         </div>
         <Divider />
         <List>
-          <ListItemLink href="Home">
+          <ListItemLink href="/main/Home">
                 <ListItemIcon><HomeOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Home"} />
            
               </ListItemLink>
-              <ListItemLink href="Calendar">
+              <ListItemLink href="/main/Calendar">
                 <ListItemIcon><EventNoteRoundedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Calendar"} />
                 </ListItemLink>
-              <ListItemLink  href="Candidats" >
+              <ListItemLink  href="/main/Candidats" >
                 <ListItemIcon><PermIdentityIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Candidates"} />
               </ListItemLink> 
-              <ListItemLink href="Vehicules"  >
+              <ListItemLink href="/main/Vehicules"  >
                 <ListItemIcon><DriveEtaOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Vehicles"} />
               </ListItemLink>
-              <ListItemLink href="Users"  >
+              <ListItemLink href="/main/Users"  >
                 <ListItemIcon><SupervisedUserCircleIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Users"} />
               </ListItemLink>
-              <ListItemLink href="Team"  >
+              <ListItemLink href="/main/Team"  >
                 <ListItemIcon><GroupOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Team"} />
               </ListItemLink>

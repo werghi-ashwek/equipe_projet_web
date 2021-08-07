@@ -17,28 +17,28 @@ import CandCalendarComponent from '../Calendar/CandCalendarComponent';
   {
      return (
           <Switch>
-              <Route  exact path="/Home">
+              <Route  exact path="/main/Home">
                   <HomeComponent/>
               </Route>
-              <Route exact path="/Calendar">
+              <Route exact path="/main/Calendar">
                   <CalendarComponent/>
               </Route>
-              <Route exact path="/Candidats">
+              <Route exact path="/main/Candidats">
                   <CandidatsComponent/>  
               </Route>
-              <Route exact path="/Vehicules">
+              <Route exact path="/main/Vehicules">
                   <VehiculesComponent/> 
               </Route>
-              <Route exact path="/Users">
+              <Route exact path="/main/Users">
                   <UsersComponent/>
              </Route>
-             <Route exact path="/Team">
+             <Route exact path="/main/Team">
                  <TeamComponent/>
              </Route>
-             <Route exact path="/Test">
+             <Route exact path="/main/Test">
                  <TestComponent/>
              </Route>
-             <Route exact path="/CandCalendar">
+             <Route exact path="/main/CandCalendar">
                  <CandCalendarComponent/>
              </Route>
           </Switch>
