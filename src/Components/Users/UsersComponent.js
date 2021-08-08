@@ -1,11 +1,9 @@
 import React from 'react'
 
-function UsersComponent() {
+export default function UsersComponent() {
     return (
         <div>
-            <p>Users are working</p>
+            <h3> user is working</h3>
         </div>
     )
 }
-
-export default UsersComponent
