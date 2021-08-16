@@ -22,7 +22,7 @@ import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MainRouter from './MainRouter';
-
+import Logo from '../Login/Logo.png'
 import Avatar from '@material-ui/core/Avatar';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 const drawerWidth = 240;
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    background: '#3e8a8a'
+    background: '#a1bbff'
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
       
     }),
-    background: "#7d8080"
+    background: "#202029"
   },
   drawerClose: {
     transition: theme.transitions.create('width', {
@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: theme.spacing(9) + 1,
     },
-    background: "#7d8080"
+    background: "#202029"
   },
   toolbar: {
     display: 'flex',
@@ -104,6 +104,9 @@ const useStyles = makeStyles((theme) => ({
   textColor:{
     color:'white',
   },
+  img:{
+    width:50,
+  marginRight:10,  },
 }));
 
 export default function TemplateEmployer() {
@@ -150,6 +153,7 @@ export default function TemplateEmployer() {
           >
             <MenuIcon />
           </IconButton>
+          <img className={classes.img}src={Logo} />
           <Typography variant="h6" noWrap>
             Auto Ecole
           </Typography>

@@ -122,8 +122,8 @@ const handleSubmit = e => {
 }
   return (
     <div>
-      <Button className={classes.addbtn} variant="contained" color="primary" onClick={handleClickOpen}>
-        Add Employee
+      <Button  className={classes.addbtn} variant="contained" color="primary" onClick={handleClickOpen}>
+        Add Employee 
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>

@@ -23,16 +23,17 @@ export default class DemoApp extends React.Component {
       
 <div>
 <PageHeader 
-                title="New Employee"
-                subTitle="Form design with validation"
+                title="Calendar"
+                subTitle=""
                 icon={<EventNoteRoundedIcon fontSize="large" />}
             />
     <Paper style={{
        padding:10,
         maringLeft:30,
         marginTop:50,
+        marginBottom:20,
         
-        height:1100,
+        height: 'min-content',
         boxShadow: '0 8px 16px 0 #7a7a7a',
         borderRadius:10,}}>
             

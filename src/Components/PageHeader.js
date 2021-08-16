@@ -1,12 +1,19 @@
 import React from 'react'
-import { Paper, Card, Typography, makeStyles, Button } from '@material-ui/core'
+import { Paper, Card, Typography, makeStyles } from '@material-ui/core'
+
 
 const useStyles = makeStyles(theme => ({
     root: {
-        backgroundColor: '#c9c9c9',
+       paddingTop:20,
+       paddingLeft:40,
+       marginTop:-35,
+       marginLeft:450,
+       marginBottom:120,
        width:400,
-       boxShadow: '0 8px 16px 0 #7a7a7a',
-       borderRadius:10,
+       boxShadow: '0 8px 16px 0 #7a7a7a',     
+       border:'borderBottom',
+       borderRadius:45,
+       background:'#010717'
     },
     pageHeader:{
         padding:theme.spacing(4),
@@ -14,11 +21,13 @@ const useStyles = makeStyles(theme => ({
         marginBottom:theme.spacing(2)
     },
     pageIcon:{
+        marginLeft:10,
         display:'inline-block',
         padding:theme.spacing(2),
         color:'#3c44b1'
     },
     pageTitle:{
+        color:'white',
         paddingLeft:theme.spacing(4),
         '& .MuiTypography-subtitle2':{
             opacity:'0.6'
@@ -31,7 +40,7 @@ export default function PageHeader(props) {
     const classes = useStyles();
     const { title, subTitle, icon } = props;
     return (
-        <Paper elevation={0} square className={classes.root}>
+        <Paper borderBottom={5} elevation={0} square className={classes.root}>
             <div className={classes.pageHeader}>
                 <Card className={classes.pageIcon}>
                     {icon}

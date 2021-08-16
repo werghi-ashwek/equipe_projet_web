@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -26,6 +26,7 @@ import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import Avatar from '@material-ui/core/Avatar';
 import MainRouter from './MainRouter';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+import Logo from '../Login/Logo.png'
 const drawerWidth = 240;
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    background: '#49a6a6'
+    background: '#a1bbff'
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     
   },
     LoginButton: {
-    marginLeft:' auto',
+    marginTop:300,
   },
   menuButton: {
     marginRight: 36,
@@ -105,6 +106,9 @@ const useStyles = makeStyles((theme) => ({
   textColor:{
     color:'white',
   },
+  img:{
+    width:50,
+  marginRight:10,  },
 }));
 
 export default function TemplateAdmin() {
@@ -150,39 +154,11 @@ export default function TemplateAdmin() {
           >
             <MenuIcon />
           </IconButton>
+          <img className={classes.img}src={Logo} />
           <Typography variant="h6" noWrap>
             Auto Ecole
           </Typography>
-          <div className={classes.LoginButton}>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <Avatar src="/broken-image.jpg" />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={openLog}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>
-                <ExitToAppOutlinedIcon/>   Log Out</MenuItem>
-                
-              </Menu>
-            </div>
+          
         </Toolbar>
       </AppBar>
       <Drawer
@@ -200,7 +176,7 @@ export default function TemplateAdmin() {
       >
         <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            {theme.direction === 'rtl' ? <ChevronRightIcon  /> : <ChevronLeftIcon style={{ color: 'white' }} />}
           </IconButton>
         </div>
         <Divider />
@@ -230,10 +206,178 @@ export default function TemplateAdmin() {
                 <ListItemIcon><GroupOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Team"} />
               </ListItemLink>
+              <ListItemLink href="/"  >
+                <ListItemIcon><ExitToAppOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
+                <ListItemText className={classes.textColor} primary={"Log Out"} />
+              </ListItemLink>
           </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
+        
+        <MainRouter/>
+        
+      </main>
+    </div>
+  );
+}*/
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import EventNoteRoundedIcon from '@material-ui/icons/EventNoteRounded';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
+import Avatar from '@material-ui/core/Avatar';
+import MainRouter from './MainRouter';
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+import Logo from '../Login/Logo.png'
+const drawerWidth = 200;
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
+  
+  
+  
+    LoginButton: {
+    marginTop:300,
+  },
+  
+  
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+    background: "#010717"
+    
+  },
+  
+    
+  
+  toolbar: {
+    marginTop:5, 
+    marginBottom:8,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+    
+  },
+  content: {
+    flexGrow: 6,
+    marginLeft:30,
+    marginRight:30,
+    
+    
+    
+  },
+  textColor:{
+    color:'#c2d3ff',
+  },
+  img:{
+    width:50,
+  marginRight:10,  },
+  dividerColor: {
+    background: "white"
+  },
+  divider: {
+
+  background: theme.palette.divider="#c2d3ff",
+},
+}));
+
+export default function TemplateAdmin() {
+  const classes = useStyles();
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const openLog = Boolean(anchorEl);
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+ 
+  
+
+  return (
+    <div className={classes.root}>
+     
+      
+      <Drawer
+        variant="permanent"
+        className={classes.drawer}
+        classes ={{paper : classes.drawer}}
+        
+      >
+        <div className={classes.toolbar}>
+        <img className={classes.img}src={Logo} />
+          <Typography className={classes.textColor} variant="h6" noWrap>
+            Auto Ecole
+          </Typography>
+         
+        </div>
+        
+        <Divider className={classes.divider}  light={true} ></Divider>
+        <List>
+          <ListItemLink href="/main/Home">
+                <ListItemIcon><HomeOutlinedIcon style={{ color: '#c2d3ff' }} /></ListItemIcon>
+                <ListItemText className={classes.textColor} primary={"Home"} />
+           
+              </ListItemLink>
+              <ListItemLink href="/main/Calendar">
+                <ListItemIcon><EventNoteRoundedIcon style={{ color: '#c2d3ff' }} /></ListItemIcon>
+                <ListItemText className={classes.textColor} primary={"Calendar"} />
+                </ListItemLink>
+              <ListItemLink  href="/main/Candidats" >
+                <ListItemIcon><PermIdentityIcon style={{ color: '#c2d3ff' }} /></ListItemIcon>
+                <ListItemText className={classes.textColor} primary={"Candidates"} />
+              </ListItemLink> 
+              <ListItemLink href="/main/Vehicules"  >
+                <ListItemIcon><DriveEtaOutlinedIcon style={{ color: '#c2d3ff' }} /></ListItemIcon>
+                <ListItemText className={classes.textColor} primary={"Vehicles"} />
+              </ListItemLink>
+              <ListItemLink href="/main/Users"  >
+                <ListItemIcon><SupervisedUserCircleIcon style={{ color: '#c2d3ff' }} /></ListItemIcon>
+                <ListItemText className={classes.textColor} primary={"Users"} />
+              </ListItemLink>
+              <ListItemLink href="/main/Team"  >
+                <ListItemIcon><GroupOutlinedIcon style={{ color: '#c2d3ff' }} /></ListItemIcon>
+                <ListItemText className={classes.textColor} primary={"Team"} />
+              </ListItemLink>
+              <ListItemLink href="/"  >
+                <ListItemIcon><ExitToAppOutlinedIcon style={{ color: '#c2d3ff' }} /></ListItemIcon>
+                <ListItemText className={classes.textColor} primary={"Log Out"} />
+              </ListItemLink>
+          </List>
+      </Drawer>
+      <main className={classes.content}>
+        
         
         <MainRouter/>
         

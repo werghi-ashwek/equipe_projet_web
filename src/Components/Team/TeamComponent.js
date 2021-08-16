@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(3),
         boxShadow: '0 8px 16px 0 #7a7a7a',
         borderRadius:10,
-        backgroundColor: '#c9c9c9'
+        
         
     },
     searchInput: {

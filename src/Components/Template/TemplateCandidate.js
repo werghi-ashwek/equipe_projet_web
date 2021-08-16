@@ -22,6 +22,7 @@ import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedI
 import MainRouter from './MainRouter';
 import Avatar from '@material-ui/core/Avatar';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+import Logo from '../Login/Logo.png'
 const drawerWidth = 240;
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    background: '#3e8a8a'
+    background: '#a1bbff'
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -53,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft:' auto',
   },
   menuButton: {
-    marginRight: 36,
+    marginRight: 5,
   },
   hide: {
     display: 'none',
@@ -71,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
       
     }),
-    background: "#7d8080"
+    background: "#202029"
   },
   drawerClose: {
     transition: theme.transitions.create('width', {
@@ -81,9 +82,9 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'hidden',
     width: theme.spacing(7) + 1,
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9) + 1,
+      width: theme.spacing(7) + 1,
     },
-    background: "#7d8080"
+    background: "#202029"
   },
   toolbar: {
     display: 'flex',
@@ -101,6 +102,9 @@ const useStyles = makeStyles((theme) => ({
   textColor:{
     color:'white',
   },
+  img:{
+    width:50,
+  marginRight:10,  },
 }));
 
 export default function TemplateCandidate() {
@@ -146,7 +150,9 @@ export default function TemplateCandidate() {
           >
             <MenuIcon />
           </IconButton>
+          <img className={classes.img}src={Logo} />
           <Typography variant="h6" noWrap>
+            
             Auto Ecole
           </Typography>
           <div className={classes.LoginButton}>

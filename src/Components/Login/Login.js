@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+/*import React, {useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -119,4 +119,32 @@ export default function Login( ) {
       </Dialog>
     </div>
   );
+}*/
+import React from "react";
+import ReactDOM from "react-dom";
+
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import DashboardLogin from "./DashboardLogin";
+
+
+
+const muiBaseTheme = createMuiTheme();
+
+
+export default function Login() {
+  return (
+    
+      <MuiThemeProvider
+        theme={createMuiTheme({
+          typography: {
+            useNextVariants: true
+          },
+          overrides: DashboardLogin.getTheme(muiBaseTheme)
+        })}
+      >
+        <DashboardLogin/>
+      </MuiThemeProvider>
+    
+  );
 }
+
