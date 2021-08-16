@@ -3,12 +3,7 @@ const KEYS = {
     employeeId: 'employeeId'
 }
 
-export const getDepartmentCollection = () => ([
-    { id: '1', title: 'Development' },
-    { id: '2', title: 'Marketing' },
-    { id: '3', title: 'Accounting' },
-    { id: '4', title: 'HR' },
-])
+
 
 export function insertEmployee(data) {
     let employees = getAllEmployees();
@@ -42,10 +37,9 @@ export function getAllEmployees() {
         localStorage.setItem(KEYS.employees, JSON.stringify([]))
     var employees = JSON.parse(localStorage.getItem(KEYS.employees));
     
-    //var departments = getDepartmentCollection();
-    return employees.map(x => ({
+    
+    return employees.map(x =>({
         ...x,
-        /*department: departments[x.departmentId-1].title*/
         
     }))
 }

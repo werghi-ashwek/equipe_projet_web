@@ -37,7 +37,7 @@ const headCells = [
     { id: 'fullName', label: 'Employee Name' },
     { id: 'email', label: 'Email Address (Personal)' },
     { id: 'mobile', label: 'Mobile Number' },
-    { id: 'department', label: 'Department'  },
+    { id: 'salaire', label: 'Salaire'  },
     { id: 'actions', label: 'Actions', disableSorting: true },
 ]
 
@@ -69,7 +69,6 @@ export default function Team() {
             }
         })
     }
-
     const addOrEdit = (employee, resetForm) => {
         if (employee.id == 0)
             employeeService.insertEmployee(employee)
@@ -106,7 +105,7 @@ export default function Team() {
         })
     }
     return (
-        <>
+        <div>
             <PageHeader
                 title="The Team"
                 subTitle="Auto_Ecole"
@@ -142,7 +141,7 @@ export default function Team() {
                                     <TableCell>{item.fullName}</TableCell>
                                     <TableCell>{item.email}</TableCell>
                                     <TableCell>{item.mobile}</TableCell>
-                                    <TableCell>{item.department}</TableCell>
+                                    <TableCell>{item.salaire}</TableCell>
                                     <TableCell>
                                         <Controls.ActionButton
                                             color="primary"
@@ -189,6 +188,6 @@ export default function Team() {
                 confirmDialog={confirmDialog}
                 setConfirmDialog={setConfirmDialog}
             />
-        </>
+        </div>
     )
 }

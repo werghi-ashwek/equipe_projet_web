@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Grid, } from '@material-ui/core';
 import Controls from "../Controls/Controls";
 import { useForm, Form } from '../UseForm';
-import * as employeeService from "../Services/EmployeService"
-import UsersComponent  from '../Users/UsersComponent';
+import * as candidatService from "../Services/CandidatService";
 import generator from "generate-password";
+
+
 
 const genderItems = [
     { id: 'male', title: 'Male' },
@@ -12,34 +13,40 @@ const genderItems = [
     { id: 'other', title: 'Other' },
 ]
 
+const typeItems = [
+    { id: 'code', title: 'Code' },
+    { id: 'Conduite', title: 'Conduite' },
+   
+]
+
 const initialFValues = {
     id: 0,
     fullName: '',
-    email: '',
+    age: '' ,
     mobile: '',
     city: '',
+    type:'code',
+    categorie:"",
     gender: 'male',
-    hireDate: new Date(),
-    isPermanent: false,
-    password:"",
-    role:'employer',
-    salaire:''
+    Date_examencode: new Date(),
+    Date_examenconduite: new Date(),
+    payment:"",
+    password:'',
+    role:'candidate'
 }
 
-export default function TeamForm( props ) {
+export default function CandidatForm( props ) {
     
     const { addOrEdit, recordForEdit } = props
-    const [password, setPassword] = useState('');
     const validate = (fieldValues = values) => {
         let temp = { ...errors }
         if ('fullName' in fieldValues)
             temp.fullName = fieldValues.fullName ? "" : "This field is required."
-        if ('email' in fieldValues)
-            temp.email = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(fieldValues.email) ? "" : "Email is not valid."
+        
         if ('mobile' in fieldValues)
-            temp.mobile = (!isNaN(Number(fieldValues.mobile)) && fieldValues.mobile.length == 8 )? "" : " Mobile number is not valid."
-        if ('salaire' in fieldValues)
-           temp.salaire = !isNaN(Number(fieldValues.salaire))  ? "" : "  is not valid."
+            temp.mobile = fieldValues.mobile.length == 8 ? "" : " Mobile number is not valid."
+        if ('categorieId' in fieldValues)
+            temp.categorieId = fieldValues.categorieId.length != 0 ? "" : "This field is required." 
         setErrors({
             ...temp
         })
@@ -66,9 +73,8 @@ export default function TeamForm( props ) {
     const handleSubmit = e => {
         e.preventDefault()
         if (validate()){
-            
             addOrEdit(values, resetForm);
-            
+       
         }
     }
     const generatePassword = () => {
@@ -84,7 +90,7 @@ export default function TeamForm( props ) {
     } 
 
     return (
-        <Form onSubmit={handleSubmit  }>
+        <Form onSubmit={handleSubmit}>
             <Grid container>
                 <Grid item xs={6}>
                     <Controls.Input
@@ -95,11 +101,10 @@ export default function TeamForm( props ) {
                         error={errors.fullName}
                     />
                     <Controls.Input
-                        label="Email"
-                        name="email"
-                        value={values.email}
+                        label="Age"
+                        name="age"
+                        value={values.age}
                         onChange={handleInputChange}
-                        error={errors.email}
                     />
                     <Controls.Input
                         label="Mobile"
@@ -109,21 +114,11 @@ export default function TeamForm( props ) {
                         error={errors.mobile}
                     />
                     <Controls.Input
-                        label="Salaire"
-                        name="salaire"
-                        value={values.salaire}
-                        onChange={handleInputChange}
-                        error={errors.salaire}
-                    />
-                    <Controls.Input
                         label="City"
                         name="city"
                         value={values.city}
                         onChange={handleInputChange}
                     />
-
-                </Grid>
-                <Grid item xs={6}>
                     <Controls.RadioGroup
                         name="gender"
                         label="Gender"
@@ -131,25 +126,49 @@ export default function TeamForm( props ) {
                         onChange={handleInputChange}
                         items={genderItems}
                     />
-                     
-                    <Controls.DatePicker
-                        name="hireDate"
-                        label="Hire Date"
-                        value={values.hireDate}
+                    
+
+                </Grid>
+                <Grid item xs={6}>
+                   
+                    <Controls.RadioGroup
+                        name="type"
+                        label="Type"
+                        value={values.type}
                         onChange={handleInputChange}
+                        items={typeItems}
                     />
-                    <Controls.Checkbox
-                        name="isPermanent"
-                        label="Permanent Employee"
-                        value={values.isPermanent}
+                     <Controls.Select
+                        name="categorieId"
+                        label="Catégorie Permis"
+                        value={values.categorie_permis}
+                        onChange={handleInputChange}
+                         options={candidatService.getCategorieCollection()}
+                        error={errors.categorie_permis}
+                    />
+                    <Controls.DatePicker
+                        name="dateexamen"
+                        label="Date Examen  "
+                        value={values.dateexamen}
                         onChange={handleInputChange}
                     />
                     
-
+                    <Controls.Input
+                        label="Payee"
+                        name="payee"
+                        value={values.payee}
+                        onChange={handleInputChange}
+                    />
+                    <Controls.Input
+                        label="A payer"
+                        name="apayer"
+                        value={values.apayer}
+                        onChange={handleInputChange}
+                    />
                     <div>
                         <Controls.Button
                             type="submit"
-                            text="Submit" 
+                            text="Submit"
                             onClick={generatePassword}/>
                         <Controls.Button
                             text="Reset"

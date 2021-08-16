@@ -1,11 +1,9 @@
 import React from 'react'
 
-function TestComponent() {
+export default function TestComponent() {
     return (
         <div>
-            <p>tests are working</p>
+            <p> TestComponent</p>
         </div>
     )
 }
-
-export default TestComponent
