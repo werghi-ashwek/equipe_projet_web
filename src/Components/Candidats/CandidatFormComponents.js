@@ -7,11 +7,7 @@ import generator from "generate-password";
 
 
 
-const genderItems = [
-    { id: 'male', title: 'Male' },
-    { id: 'female', title: 'Female' },
-    { id: 'other', title: 'Other' },
-]
+
 
 const typeItems = [
     { id: 'code', title: 'Code' },
@@ -27,9 +23,7 @@ const initialFValues = {
     city: '',
     type:'code',
     categorie:"",
-    gender: 'male',
-    Date_examencode: new Date(),
-    Date_examenconduite: new Date(),
+    dateexamen: new Date(),
     payment:"",
     password:'',
     role:'candidate'
@@ -93,6 +87,13 @@ export default function CandidatForm( props ) {
         <Form onSubmit={handleSubmit}>
             <Grid container>
                 <Grid item xs={6}>
+                    <Controls.RadioGroup
+                        name="type"
+                        label="Type"
+                        value={values.type}
+                        onChange={handleInputChange}
+                        items={typeItems}
+                    />
                     <Controls.Input
                         name="fullName"
                         label="Full Name"
@@ -119,25 +120,12 @@ export default function CandidatForm( props ) {
                         value={values.city}
                         onChange={handleInputChange}
                     />
-                    <Controls.RadioGroup
-                        name="gender"
-                        label="Gender"
-                        value={values.gender}
-                        onChange={handleInputChange}
-                        items={genderItems}
-                    />
                     
 
                 </Grid>
                 <Grid item xs={6}>
                    
-                    <Controls.RadioGroup
-                        name="type"
-                        label="Type"
-                        value={values.type}
-                        onChange={handleInputChange}
-                        items={typeItems}
-                    />
+                   
                      <Controls.Select
                         name="categorieId"
                         label="Catégorie Permis"

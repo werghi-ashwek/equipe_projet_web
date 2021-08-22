@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(3),
         boxShadow: '0 8px 16px 0 #7a7a7a',
         borderRadius:10,
-        backgroundColor: '#c9c9c9'
+        
+        
     },
     searchInput: {
         width: '50%'
@@ -112,7 +113,7 @@ export default function CandidatsComponent() {
     return (
         <div >
             <PageHeader
-                title="Our Candidats"
+                title=" Candidats"
                 subTitle="Auto_Ecole"
                 icon={<PeopleOutlineTwoToneIcon fontSize="large" />}
             />
@@ -147,7 +148,7 @@ export default function CandidatsComponent() {
                                     <TableCell>{item.age}</TableCell>
                                     <TableCell>{item.mobile}</TableCell>
                                     <TableCell>{item.type}/{item.categorie}</TableCell>
-                                    <TableCell>{item.dateexamen}</TableCell>
+                                    <TableCell>{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(item.dateexamen)))}</TableCell>
                                     <TableCell>{item.payee}/{item.apayer}</TableCell>
 
                                     <TableCell>

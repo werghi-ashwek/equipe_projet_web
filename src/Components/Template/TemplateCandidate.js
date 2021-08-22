@@ -16,12 +16,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import EventNoteRoundedIcon from '@material-ui/icons/EventNoteRounded';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
 import MainRouter from './MainRouter';
-import Avatar from '@material-ui/core/Avatar';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+import Logo from '../Login/Logo.png'
 const drawerWidth = 240;
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -37,7 +35,8 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    background: '#3e8a8a'
+    // '#a1bbff'
+    background:'#a1bbff' 
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -52,9 +51,7 @@ const useStyles = makeStyles((theme) => ({
     LoginButton: {
     marginLeft:' auto',
   },
-  menuButton: {
-    marginRight: 36,
-  },
+
   hide: {
     display: 'none',
   },
@@ -71,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
       
     }),
-    background: "#7d8080"
+    background: '#05092e'
   },
   drawerClose: {
     transition: theme.transitions.create('width', {
@@ -81,9 +78,9 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'hidden',
     width: theme.spacing(7) + 1,
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9) + 1,
+      width: theme.spacing(7) + 1,
     },
-    background: "#7d8080"
+    background: '#05092e'
   },
   toolbar: {
     display: 'flex',
@@ -101,6 +98,9 @@ const useStyles = makeStyles((theme) => ({
   textColor:{
     color:'white',
   },
+  img:{
+    width:50,
+  marginRight:10,  },
 }));
 
 export default function TemplateCandidate() {
@@ -146,39 +146,12 @@ export default function TemplateCandidate() {
           >
             <MenuIcon />
           </IconButton>
+          <img className={classes.img}src={Logo} />
           <Typography variant="h6" noWrap>
+            
             Auto Ecole
           </Typography>
-          <div className={classes.LoginButton}>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <Avatar src="/broken-image.jpg" />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={openLog}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>
-                <ExitToAppOutlinedIcon/>   Log Out</MenuItem>
-                
-              </Menu>
-            </div>
+         
         </Toolbar>
       </AppBar>
       <Drawer
@@ -209,6 +182,10 @@ export default function TemplateCandidate() {
                 <ListItemIcon><EventNoteRoundedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"My Calendar"} />
                </ListItemLink>
+               <ListItemLink href="/"  >
+                <ListItemIcon><ExitToAppOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
+                <ListItemText className={classes.textColor} primary={"Log Out"} />
+              </ListItemLink>
               
               
           </List>

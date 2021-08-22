@@ -18,8 +18,11 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(3),
         boxShadow: '0 8px 16px 0 #7a7a7a',
         borderRadius:10,
-        backgroundColor: '#c9c9c9'
-    },
+        // backgroundColor: '#c9c9c9'
+        width: "65%",
+        marginLeft: '250px'
+       
+    }, 
     searchInput: {
         width: '50%'
     },
@@ -39,10 +42,7 @@ function UsersComponent( ) {
     const [filterFn, setFilterFn] = useState({ fn: items => { return items; } })
     const [records,setRecords]=useState(candidateService.getAllCandidats().concat(employeeService.getAllEmployees()))
      
-        /*for (let i = 0; i < cand.length; i++) {
-            setRecords([...records,cand[i] ])
-        }*/
-   
+        
     const {
         TblContainer,
         TblHead,
@@ -97,7 +97,7 @@ function UsersComponent( ) {
                         )} 
                     </TableBody>
                 </TblContainer>
-                <TblPagination />
+                
             </Paper>
         </div>
     )

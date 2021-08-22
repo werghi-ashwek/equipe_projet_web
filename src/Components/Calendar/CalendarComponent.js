@@ -1,4 +1,3 @@
-
 import React, { createRef } from 'react'
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
@@ -20,23 +19,26 @@ export default class DemoApp extends React.Component {
 
 
     return (
-      
-      <div>
+          
+    <div>
         <PageHeader 
-          title="Calendar"
-          subTitle="Auto_Ecole"
-          icon={<EventNoteRoundedIcon fontSize="large" />}
-        />
+                    title="Calendar"
+                    subTitle=""
+                    icon={<EventNoteRoundedIcon fontSize="large" />}
+          />
         <Paper style={{
           padding:10,
             maringLeft:30,
             marginTop:50,
+            marginBottom:20,
             
-            height:1100,
+            height: 'min-content',
             boxShadow: '0 8px 16px 0 #7a7a7a',
             borderRadius:10,}}>
                 
           <FullCalendar 
+
+            
             ref={calendarRef}
             schedulerLicenseKey ='CC-Attribution-NonCommercial-NoDerivatives'
 
@@ -79,8 +81,8 @@ export default class DemoApp extends React.Component {
 
             }}
           />
-        </Paper>
-      </div>
-    )
-  }
-}
+          </Paper>
+          </div>
+        )
+      }
+    }

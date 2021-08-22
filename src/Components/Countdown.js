@@ -38,8 +38,7 @@ function Countdown({date}) {
         }
     })
     return (
-        <section className='timer-container'>
-            <section className='timer'>
+      
                 <div>
                     <section>
                         <p>{timerDays}<small>  Days</small></p>
@@ -47,8 +46,7 @@ function Countdown({date}) {
                     </section>
                     
                 </div>
-            </section>
-        </section>
+      
     )
 }
 

@@ -3,7 +3,7 @@ import TeamForm from "./TeamFormComponent";
 import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
 import { Paper, makeStyles, TableBody, TableRow, TableCell, Toolbar, InputAdornment } from '@material-ui/core';
 import useTable from "../UseTable";
-import { Search } from "@material-ui/icons";
+import { BorderColor, Search } from "@material-ui/icons";
 import PageHeader from "../PageHeader";
 import Controls from "../Controls/Controls";
 import AddIcon from '@material-ui/icons/Add';
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(3),
         boxShadow: '0 8px 16px 0 #7a7a7a',
         borderRadius:10,
-        backgroundColor: '#c9c9c9'
+        // backgroundColor: '#c9c9c9'
     },
     searchInput: {
         width: '50%'
@@ -28,7 +28,8 @@ const useStyles = makeStyles(theme => ({
     
     newButton: {
         position: 'absolute',
-        right: '10px'
+        right: '10px',
+        BorderColor: '#05092e'
     }
 }))
 

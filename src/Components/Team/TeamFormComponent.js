@@ -6,11 +6,7 @@ import * as employeeService from "../Services/EmployeService"
 import UsersComponent  from '../Users/UsersComponent';
 import generator from "generate-password";
 
-const genderItems = [
-    { id: 'male', title: 'Male' },
-    { id: 'female', title: 'Female' },
-    { id: 'other', title: 'Other' },
-]
+
 
 const initialFValues = {
     id: 0,
@@ -18,8 +14,6 @@ const initialFValues = {
     email: '',
     mobile: '',
     city: '',
-    gender: 'male',
-    hireDate: new Date(),
     isPermanent: false,
     password:"",
     role:'employer',
@@ -86,7 +80,7 @@ export default function TeamForm( props ) {
     return (
         <Form onSubmit={handleSubmit  }>
             <Grid container>
-                <Grid item xs={6}>
+                
                     <Controls.Input
                         name="fullName"
                         label="Full Name"
@@ -121,32 +115,14 @@ export default function TeamForm( props ) {
                         value={values.city}
                         onChange={handleInputChange}
                     />
-
-                </Grid>
-                <Grid item xs={6}>
-                    <Controls.RadioGroup
-                        name="gender"
-                        label="Gender"
-                        value={values.gender}
-                        onChange={handleInputChange}
-                        items={genderItems}
-                    />
-                     
-                    <Controls.DatePicker
-                        name="hireDate"
-                        label="Hire Date"
-                        value={values.hireDate}
-                        onChange={handleInputChange}
-                    />
-                    <Controls.Checkbox
+                    <div  className="controls"> 
+                        <Controls.Checkbox
                         name="isPermanent"
                         label="Permanent Employee"
                         value={values.isPermanent}
                         onChange={handleInputChange}
-                    />
-                    
-
-                    <div>
+                        />
+                  
                         <Controls.Button
                             type="submit"
                             text="Submit" 
@@ -156,7 +132,8 @@ export default function TeamForm( props ) {
                             color="default"
                             onClick={resetForm} />
                     </div>
-                </Grid>
+               
+                
             </Grid>
         </Form>
     )

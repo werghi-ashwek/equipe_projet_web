@@ -19,13 +19,11 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import EventNoteRoundedIcon from '@material-ui/icons/EventNoteRounded';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
-import Avatar from '@material-ui/core/Avatar';
 import MainRouter from './MainRouter';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+import Logo from '../Login/Logo.png'
 const drawerWidth = 240;
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -41,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    background: '#49a6a6'
+    background: '#a1bbff'
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -54,11 +52,9 @@ const useStyles = makeStyles((theme) => ({
     
   },
     LoginButton: {
-    marginLeft:' auto',
+    marginTop:300,
   },
-  menuButton: {
-    marginRight: 36,
-  },
+  
   hide: {
     display: 'none',
   },
@@ -75,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
       
     }),
-    background: "#202029"
+    background: "#05092e"
   },
   drawerClose: {
     transition: theme.transitions.create('width', {
@@ -87,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: theme.spacing(9) + 1,
     },
-    background: "#202029"
+    background: "#05092e"
   },
   toolbar: {
     display: 'flex',
@@ -105,6 +101,9 @@ const useStyles = makeStyles((theme) => ({
   textColor:{
     color:'white',
   },
+  img:{
+    width:50,
+  marginRight:10,  },
 }));
 
 export default function TemplateAdmin() {
@@ -150,39 +149,11 @@ export default function TemplateAdmin() {
           >
             <MenuIcon />
           </IconButton>
+          <img className={classes.img}src={Logo} />
           <Typography variant="h6" noWrap>
             Auto Ecole
           </Typography>
-          <div className={classes.LoginButton}>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <Avatar src="/broken-image.jpg" />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={openLog}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>
-                <ExitToAppOutlinedIcon/>   Log Out</MenuItem>
-                
-              </Menu>
-            </div>
+          
         </Toolbar>
       </AppBar>
       <Drawer
@@ -200,7 +171,7 @@ export default function TemplateAdmin() {
       >
         <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            {theme.direction === 'rtl' ? <ChevronRightIcon  /> : <ChevronLeftIcon style={{ color: 'white' }} />}
           </IconButton>
         </div>
         <Divider />
@@ -229,6 +200,10 @@ export default function TemplateAdmin() {
               <ListItemLink href="/main/Team"  >
                 <ListItemIcon><GroupOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
                 <ListItemText className={classes.textColor} primary={"Team"} />
+              </ListItemLink>
+              <ListItemLink href="/"  >
+                <ListItemIcon><ExitToAppOutlinedIcon style={{ color: 'white' }} /></ListItemIcon>
+                <ListItemText className={classes.textColor} primary={"Log Out"} />
               </ListItemLink>
           </List>
       </Drawer>

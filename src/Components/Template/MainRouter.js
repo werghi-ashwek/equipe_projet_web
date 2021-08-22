@@ -1,3 +1,4 @@
+
 import React from 'react'
 import CandidatsComponent from '../Candidats/CandidatsComponent'
 
@@ -13,7 +14,8 @@ import UsersComponent from '../Users/UsersComponent';
 import TeamComponent from '../Team/TeamComponent';
 import TestComponent from '../Tests/TestComponent';
 import CandCalendarComponent from '../Calendar/CandCalendarComponent';
-
+import Test1 from '../Tests/test1'
+import Test2 from '../Tests/test2'
   export default function MainRouter()
   {
      return (
@@ -41,6 +43,12 @@ import CandCalendarComponent from '../Calendar/CandCalendarComponent';
              </Route>
              <Route exact path="/main/CandCalendar">
                  <CandCalendarComponent/>
+             </Route>
+             <Route exact path="/main/Test/test1">
+                 <Test1/>
+             </Route>
+             <Route exact path="/main/Test/test2">
+                 <Test2/>
              </Route>
           </Switch>
       );
